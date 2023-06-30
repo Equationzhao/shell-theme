@@ -1,3 +1,11 @@
+# custom catppuccin
+
+support git, golang/python/java/... version, return code, exec time,
+
+## preview
+![image](https://github.com/Equationzhao/oh-my-posh-my-half-life/assets/75521101/d2c8b31c-13fc-4df2-9748-40d60934e17c)
+
+
 # custom Half-life theme
 
 support wakatime, git, golang/python/java/... version, return code, exec time,
