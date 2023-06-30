@@ -2,170 +2,163 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "console_title_template": "{{.UserName}} {{.Shell}} in {{.PWD}}",
   "blocks": [
-      {
-            "alignment": "left",
-            "segments": [
-                    {
-                              "foreground": "p:os",
-                              "style": "plain",
-                              "template": "{{.Icon}} ",
-                              "type": "os"
-                            },
-                    {
-                              "style": "plain",
-                              "type": "root",
-                              "foreground": "#ffff66",
-                              "template": " "
-                            },
-                    {
-                              "foreground": "#7E46B6",
-                              "style": "plain",
-                              "template": "{{ if .SSHSession }} {{ end }}{{ .UserName }} ",
-                              "type": "session"
-                            },
-                    {
-                              "foreground": "#ffffff",
-                              "style": "plain",
-                              "template": "in ",
-                              "type": "text"
-                            },
-                    {
-                              "foreground": "#a7fa48",
-                              "properties": {
-                                          "style": "full"
-                                        },
-                              "style": "plain",
-                              "template": "{{ .Path }} ",
-                              "type": "path"
-                            },
-                    {
-                              "style": "plain",
-                              "type": "project",
-                              "foreground": "#193549",
-                              "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }} {{.Version}}{{ end }} {{ if .Name }}{{ .Name }}{{ end }}{{ end }} "
-                            },
-                    {
-                              "type": "java",
-                              "style": "plain",
-                              "foreground": "#4063D8",
-                              "template": "  {{ .Full }}"
-                            },
-                    {
-                              "type": "go",
-                              "style": "plain",
-                              "template": "ﳑ {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
-                            },
-                    {
-                              "style": "plain",
-                              "background": "#86BBD8",
-                              "foreground": "#ffffff",
-                              "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
-                              "type": "node"
-                            },
-                    {
-                              "style": "plain",
-                              "type": "python",
-                              "foreground": "#906cff",
-                              "template": "  {{ .Full }} "
-                            },
-                    {
-                              "foreground": "#5FD7FF",
-                              "properties": {
-                                          "branch_ahead_icon": "",
-                                          "branch_behind_icon": "",
-                                          "branch_gone_icon": "",
-                                          "branch_icon": "\ue725 ",
-                                          "branch_identical_icon": "",
-                                          "cherry_pick_icon": "\ue29b ",
-                                          "commit_icon": "\uf417 ",
-                                          "fetch_status": true,
-                                          "merge_icon": "\ue727 ",
-                                          "rebase_icon": "\ue728 ",
-                                          "revert_icon": "\uf0e2 ",
-                                          "tag_icon": "\uf412 "
-                                        },
-                              "style": "plain",
-                              "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
-                              "type": "git"
-                            },
-                    {
-                              "foreground": "#f49140",
-                              "style": "plain",
-                              "template": "λ ",
-                              "type": "text"
-                            }
-                    
-                  ],
-            "type": "prompt"
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "p:os",
+          "style": "plain",
+          "template": "{{.Icon}} ",
+          "type": "os"
+        },
+        {
+          "style": "plain",
+          "type": "root",
+          "foreground": "#ffff66",
+          "template": " "
+        },
+        {
+          "foreground": "#7E46B6",
+          "style": "plain",
+          "template": "{{ if .SSHSession }} {{ end }}{{ .UserName }} ",
+          "type": "session"
+        },
+        {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": "in ",
+          "type": "text"
+        },
+        {
+          "foreground": "#a7fa48",
+          "properties": {
+            "style": "full"
           },
-      {
-            "segments": [
-                    
-                    {
-                              "type": "exit",
-                              "style": "diamond",
-                              "foreground": "#ffffff",
-                              "background": "#00897b",
-                              "background_templates": [
-                                          "{{ if gt .Code 0 }}#e91e63{{ end }}"
-                                        ],
-                              "template": "<#193549></> ✘ {{ .Code }} ",
-                              "properties": {
-                                          "always_enabled": false
-                                        }
-                            },
-                    {
-                              "type": "docker",
-                              "style": "powerline",
-                              "powerline_symbol": "",
-                              "foreground": "#000000",
-                              "background": "#0B59E7",
-                              "template": "  {{ .Context }} "
-                            },
-                    {
-                              "type": "wakatime",
-                              "style": "powerline",
-                              "powerline_symbol": "",
-                              "foreground": "#ffffff",
-                              "background": "#007acc",
-                              "properties": {
-                                          "url": "https://wakatime.com/api/v1/users/current/summaries?start=today&end=today&api_key={{ .Env.WAKATIME_API_KEY }}",
-                                          "cache_timeout": 6000,
-                                          "http_timeout": 1000
-                                        }
-                            },
-                    {
-                              "foreground": "#b8ff75",
-                              "foreground_templates": [
-                                          "{{ if gt .Code 0 }}#E06C75{{ end }}"
-                                        ],
-                              "properties": {
-                                          "style": "roundrock",
-                                          "always_enabled": false
-                                        },
-                              "style": "plain",
-                              "template": "  \ufa1e{{ .FormattedMs }} ",
-                              "type": "executiontime"
-                            },
-                    {
-                              "foreground": "#31aea3",
-                              "template": "  {{ .CurrentDate | date .Format }} ",
-                              "properties": {
-                                          "time_format": "15:04:05"
-                                        },
-                              "style": "plain",
-                              "type": "time"
-                            }        
-                  ],
-            "type": "rprompt"
-          }
-    ],
-  "secondary_prompt": {
-      "background": "transparent",
-      "foreground": "#fec5e0",
-      "template": "-> "
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "style": "plain",
+          "type": "project",
+          "foreground": "#193549",
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }} {{.Version}}{{ end }} {{ if .Name }}{{ .Name }}{{ end }}{{ end }} "
+        },
+        {
+          "type": "java",
+          "style": "plain",
+          "foreground": "#4063D8",
+          "template": "  {{ .Full }}"
+        },
+        {
+          "type": "go",
+          "style": "plain",
+          "template": "ﳑ {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        },
+        {
+          "style": "plain",
+          "background": "#86BBD8",
+          "foreground": "#ffffff",
+          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "type": "node"
+        },
+        {
+          "style": "plain",
+          "type": "python",
+          "foreground": "#906cff",
+          "template": "  {{ .Full }} "
+        },
+        {
+          "foreground": "#5FD7FF",
+          "properties": {
+            "branch_ahead_icon": "",
+            "branch_behind_icon": "",
+            "branch_gone_icon": "",
+            "branch_icon": "\ue725 ",
+            "branch_identical_icon": "",
+            "cherry_pick_icon": "\ue29b ",
+            "commit_icon": "\uf417 ",
+            "fetch_status": true,
+            "merge_icon": "\ue727 ",
+            "rebase_icon": "\ue728 ",
+            "revert_icon": "\uf0e2 ",
+            "tag_icon": "\uf412 "
+          },
+          "style": "plain",
+          "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
+          "type": "git"
+        },
+        {
+          "foreground": "#f49140",
+          "style": "plain",
+          "template": "λ ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
     },
+    {
+      "segments": [
+        {
+          "type": "exit",
+          "style": "diamond",
+          "foreground": "#ffffff",
+          "background": "#00897b",
+          "background_templates": ["{{ if gt .Code 0 }}#e91e63{{ end }}"],
+          "template": "<#193549></> ✘ {{ .Code }} ",
+          "properties": {
+            "always_enabled": false
+          }
+        },
+        {
+          "type": "docker",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#000000",
+          "background": "#0B59E7",
+          "template": "  {{ .Context }} "
+        },
+        {
+          "type": "wakatime",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#ffffff",
+          "background": "#007acc",
+          "properties": {
+            "url": "https://wakatime.com/api/v1/users/current/summaries?start=today&end=today&api_key={{ .Env.WAKATIME_API_KEY }}",
+            "cache_timeout": 6000,
+            "http_timeout": 1000
+          }
+        },
+        {
+          "foreground": "#b8ff75",
+          "foreground_templates": ["{{ if gt .Code 0 }}#E06C75{{ end }}"],
+          "properties": {
+            "style": "roundrock",
+            "always_enabled": false
+          },
+          "style": "plain",
+          "template": "  \ufa1e{{ .FormattedMs }} ",
+          "type": "executiontime"
+        },
+        {
+          "foreground": "#31aea3",
+          "template": "  {{ .CurrentDate | date .Format }} ",
+          "properties": {
+            "time_format": "15:04:05"
+          },
+          "style": "plain",
+          "type": "time"
+        }
+      ],
+      "type": "rprompt"
+    }
+  ],
+  "secondary_prompt": {
+    "background": "transparent",
+    "foreground": "#fec5e0",
+    "template": "-> "
+  },
   "final_space": true,
   "version": 2
 }
-

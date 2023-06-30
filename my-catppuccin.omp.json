@@ -1,0 +1,163 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "os": "#9da8cf",
+    "closer": "p:os",
+    "pink": "#F5C2E7",
+    "lavender": "#B4BEFE",
+    "blue": "#89B4FA",
+    "root": "#f1ba23",
+    "error": "#e45a5a"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "style": "plain",
+          "template": "\u256d\u2500\u2500 ",
+          "type": "text"
+        },
+        {
+          "foreground": "p:os",
+          "style": "plain",
+          "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+          "type": "os"
+        },
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "p:root",
+          "template": "\uF0E7 "
+        },
+        {
+          "foreground": "p:blue",
+          "style": "plain",
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} ",
+          "type": "session"
+        },
+        {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": "in ",
+          "type": "text"
+        },
+        {
+          "foreground": "p:pink",
+          "properties": {
+            "home_icon": "~",
+            "folder_separator_icon": " \uebcb ",
+            "style": "agnoster_full"
+          },
+          "style": "diamond",
+          "template": "\ue5ff {{ .Path }} ",
+          "type": "path"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "segments": [
+        {
+          "style": "plain",
+          "type": "exit",
+          "foreground_templates": ["{{ if gt .Code 0 }}p:error{{ end }}"],
+          "template": " x {{ .Code }} ",
+          "properties": {
+            "always_enabled": false
+          }
+        },
+        {
+          "foreground": "#b8ff75",
+          "foreground_templates": ["{{ if gt .Code 0 }}#E06C75{{ end }}"],
+          "properties": {
+            "style": "roundrock",
+            "threshold": 5,
+            "always_enabled": false
+          },
+          "style": "plain",
+          "template": "  \ufa1e{{ .FormattedMs }} ",
+          "type": "executiontime"
+        },
+        {
+          "foreground": "p:pink",
+          "properties": {
+            "time_format": "Monday <#ffffff>at</> 15:04:05"
+          },
+          "template": "  {{ .CurrentDate | date .Format }} ",
+          "style": "plain",
+          "type": "time"
+        }
+      ],
+      "type": "rprompt"
+    },
+    {
+      "segments": [
+        {
+          "style": "plain",
+          "template": "\u2570\u2500\u2500 ",
+          "type": "text"
+        },
+        {
+          "foreground": "p:lavender",
+          "properties": {
+            "branch_max_length": 25,
+            "cherry_pick_icon": "\ue29b ",
+            "commit_icon": "\uf417 ",
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "merge_icon": "\ue727 ",
+            "no_commits_icon": "\uf0c3 ",
+            "rebase_icon": "\ue728 ",
+            "revert_icon": "\uf0e2 ",
+            "tag_icon": "\uf412 "
+          },
+          "template": "on {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "style": "plain",
+          "type": "git"
+        },
+        {
+          "style": "plain",
+          "type": "project",
+          "foreground": "#193549",
+          "template": "with {{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }} {{.Version}}{{ end }} {{ if .Name }}{{ .Name }}{{ end }}{{ end }} "
+        },
+        {
+          "type": "java",
+          "style": "plain",
+          "foreground": "#d86b40",
+          "template": "with  {{ .Full }}"
+        },
+        {
+          "style": "plain",
+          "foreground": "#77d81c",
+          "template": "with \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "type": "node"
+        },
+        {
+          "style": "plain",
+          "type": "python",
+          "foreground": "#906cff",
+          "template": "with  {{ .Full }} "
+        },
+        {
+          "type": "go",
+          "style": "plain",
+          "foreground": "#7FD5EA",
+          "template": "with ﳑ {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        },
+        {
+          "style": "plain",
+          "foreground": "p:closer",
+          "template": "λ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt",
+      "newline": true,
+      "alignment": "left"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
