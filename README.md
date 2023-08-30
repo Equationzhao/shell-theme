@@ -6,6 +6,11 @@ support git, golang/python/java/... version, return code, exec time,
 ![image](https://github.com/Equationzhao/oh-my-posh-my-half-life/assets/75521101/d2c8b31c-13fc-4df2-9748-40d60934e17c)
 
 
+# starship theme priview
+
+<img width="1702" alt="image" src="https://github.com/Equationzhao/oh-my-posh-my-half-life/assets/75521101/ff3bb97a-0a87-44c1-bb76-33d5fa62b7a1">
+
+
 # custom Half-life theme
 
 support wakatime, git, golang/python/java/... version, return code, exec time,
