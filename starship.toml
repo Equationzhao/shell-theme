@@ -1,23 +1,29 @@
 format = """
-[╭──](#a3aed2)\
-$os(fg:#9198AF)\
+[╭──](fg:#9097AE)\
+$os\
 $username\
 $sudo\
 $hostname\
 $directory\
 \n[╰── λ](fg:#9097AE) \
 $git_branch\
+$git_state\
 $git_status\
+$git_commit\
 $nodejs\
 $rust\
+$python\
 $golang\
 $php\
+$java\
+$package\
 """
 
 right_format = """
 $status\
 $cmd_duration\
 $time"""
+
 add_newline = false
 
 [username]
@@ -43,15 +49,28 @@ truncation_symbol = "…/"
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "
-"Music" = " "
+"Music" = "� "
 "Pictures" = " "
 
 [git_branch]
 symbol = ""
 format = '[[$symbol $branch ](fg:#769ff0)]($style)'
 
+[git_commit]
+tag_disabled = false
+only_detached = true
+tag_symbol = '\uf412 '
+format = '[\($hash$tag\)]($style) '
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+merge = '[\ue727 MERGING](bold red)'
+rebase = '[\ue728 REBASING](bold red)'
+revert = '[\uf0e2 REVERTING](bold red)'
+cherry_pick = '[\ue29b PICKING](bold red)'
+
 [git_status]
-format = '[[($all_status$ahead_behind )](fg:#769ff0)]($style)'
+windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.exe'
 
 [nodejs]
 symbol = ""
@@ -69,16 +88,24 @@ format = '[[$symbol ($version) ](fg:#769ff0)]($style)'
 symbol = ""
 format = '[[$symbol ($version) ](fg:#769ff0)]($style)'
 
+[java]
+symbol = ""
+format = '[[$symbol ($version) ](fg:#769ff0)]($style)'
+
+[python]
+symbol = ""
+format = '[[$symbol ($version) ](fg:#769ff0)]($style)'
+
 [time]
 disabled = false
-time_format = "%T" # Hour:Minute Format
+time_format = "%A %T" # Monday Hour:Minute Format
 format = '[[  $time ](fg:#a0a9cb)]($style)'
 
 [sudo]
 style = 'bold yellow'
 symbol = ''
 disabled = false
-format = '[as $symbol ]($style)' 
+format = '[as $symbol ]($style)'
 
 [status]
 style = 'bold blue'
@@ -104,3 +131,6 @@ Macos = " "
 min_time = 10
 format = 'underwent [$duration](bold yellow)'
 
+[package]
+format = 'via [🎁 $version](208 bold) '
+disabled = false
