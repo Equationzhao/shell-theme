@@ -10,6 +10,10 @@ support git, golang/python/java/... version, return code, exec time,
 
 <img width="1702" alt="image" src="https://github.com/Equationzhao/oh-my-posh-my-half-life/assets/75521101/ff3bb97a-0a87-44c1-bb76-33d5fa62b7a1">
 
+```bash
+# install 
+curl https://raw.githubusercontent.com/Equationzhao/shell-theme/main/catppuccin-like-starship.sh | sh
+```
 
 # custom Half-life theme
 
