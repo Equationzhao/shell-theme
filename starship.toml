@@ -105,7 +105,7 @@ format = '[[  $time ](fg:#a0a9cb)]($style)'
 style = 'bold yellow'
 symbol = ''
 disabled = false
-format = '[as $symbol ]($style)'
+format = ' [as $symbol ]($style)'
 
 [status]
 style = 'bold blue'
